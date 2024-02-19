@@ -20,7 +20,7 @@ public class ArrayTest2 {
             System.out.println("이름을 입력하세요.");
             name[i] = scanner.next();
 
-            if(score[i] >= score[0]) {
+            if(score[i] >= score[num]) {
                 num = i;
             }
         }
