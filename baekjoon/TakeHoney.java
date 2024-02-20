@@ -4,14 +4,20 @@ import java.util.Scanner;
 
 public class TakeHoney {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int MAX = 10001;
+        Scanner sc = new Scanner(System.in);
+        int[] Honey = new int[MAX];
+        int[] Sum = new int[MAX];
 
-        int N = scanner.nextInt();
-
-        int[] cases = new int[N];
+        int N = sc.nextInt();
 
         for(int i = 0; i < N; i++) {
-            cases[i] = scanner.nextInt();
+            Honey[i] = sc.nextInt();
+            Sum[i] = Sum[i-1] + Honey[i];
         }
+
+        // 벌꿀벌
+        // 꿀꿀벌
+        // 벌꿀꿀
     }
 }

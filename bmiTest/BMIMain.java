@@ -1,4 +1,4 @@
-package BMITest;
+package bmiTest;
 
 public class BMIMain {
     // BMI 지수 구하는 프로그램을 작성해 주세요. - 체중/신장^2
