@@ -1,6 +1,5 @@
 package baekjoon;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class SevenDwarf {
@@ -9,7 +8,7 @@ public class SevenDwarf {
 
         int[] dwarf = new int[9];
         int dwarfSum = 0;
-        int temp = 0;
+        int temp;
 
         for(int i = 0; i < 9; i++) {
             dwarf[i] = scanner.nextInt();

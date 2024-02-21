@@ -9,6 +9,8 @@ public class Member {
     private String phoneNumber;
     private String address;
     private String job;
+    private double height;
+    private double weight;
 
     public void setId(String id) {
         this.id = id;
@@ -34,6 +36,15 @@ public class Member {
     public void setJob(String job) {
         this.job = job;
     }
+
+    public void setHeight(double height){
+        this.height = height;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
 
     public String getId(){
         return this.id;
@@ -67,4 +78,45 @@ public class Member {
         return this.job;
     }
 
+    public double getHeight() {
+        return this.height;
+    }
+
+    public double getWeight() {
+        return this.weight;
+    }
+
+    // 회원가입 시 생성
+    public Member(String id, String pw, String pwAgain,
+                  String name, String personId, String phoneNumber,
+                  String address, String job)
+    {
+        this.id = id;
+        this.pw = pw;
+        this.pwAgain = pwAgain;
+        this.name = name;
+        this.personId = personId;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.job = job;
+    }
+
+    // bmi 계산 시 이용
+    public Member(double height, double weight)
+    {
+        this.height = height;
+        this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", personId='" + personId + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", job='" + job + '\'' +
+                '}';
+    }
 }
