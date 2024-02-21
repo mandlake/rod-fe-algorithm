@@ -17,7 +17,7 @@ public class MeetingRoom {
             meeting[i][1] = scanner.nextInt();
         }
 
-        Arrays.sort(meeting, Comparator.comparingInt((int[] o) -> o[1]));
+        Arrays.sort(meeting, Comparator.comparingInt((int[] o) -> o[1]).thenComparing(o -> o[0]));
 
         for(int i = 0; i < n; i++) {
             if(meeting[i][0] >= time) {
