@@ -4,6 +4,7 @@ import memberOOP.Member;
 
 public class BmiView {
     public static void main(String[] args) {
+        int a = 0;
 
         Member person = new Member(Math.random() * 69 + 30,
                 Math.random() * 50 + 150);
