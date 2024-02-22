@@ -8,13 +8,12 @@ public class BulbSwitch {
 
         int num = scanner.nextInt();
         int[][] bulbs = new int[2][num];
+        int count = 0;
 
         for(int i = 0; i < 2; i++) {
             for(int j = 0; j < num; j++) {
                 bulbs[i][j] = scanner.nextInt();
             }
         }
-
-        int[] countSwitch = new int[num];
     }
 }
