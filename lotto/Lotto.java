@@ -1,4 +1,4 @@
-package mathTest;
+package lotto;
 
 import java.util.Arrays;
 
@@ -11,20 +11,28 @@ public class Lotto {
      * 오름차순 정렬
      */
     public static void main(String[] args) {
+        // 1. 서로 겹치지 않는 숫자 6개를 생성
         int[] lotto = new int[6];
 
-        int num = (int) (Math.random() * 45 + 1);
-        lotto[0] = num;
-
-        for(int i = 1; i < lotto.length; i++) {
-            num = (int) (Math.random() * 45 + 1);
-            for(int j = 0; j < i; j++) {
-                while (num == lotto[j]) {
-                    num = (int) (Math.random() * 45 + 1);
+        // 2. 각 숫자는 1 ~ 45 범위 내의 숫자
+        for(int i=0; i<6; i++){
+            int randomNumber = (int) (Math.random() * 8 + 1);
+            boolean check = false;
+            for(int j=0; j<6; j++){
+                if(lotto[j] == randomNumber){
+                    // 중복되면  check 를 true 로 바꿔라..
+                    check = true;
                 }
             }
-            lotto[i] = num;
+            if(check==false){
+                lotto[i] = randomNumber; // 중복되지 않았으니 배열에 담아라.
+            }else{
+                i--; // 중복됐으면 이번 회수는 무효로 하고 다시 뽑아라.
+            }
+
         }
+
+        // 5. 오름차순 정렬
 
         Arrays.sort(lotto);
 
