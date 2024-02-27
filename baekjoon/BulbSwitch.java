@@ -5,43 +5,49 @@ import java.util.Scanner;
 public class BulbSwitch {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        String current = scanner.next();
+        String target = scanner.next();
 
-        int num = scanner.nextInt();
-        int[] bulbsStart = new int[num];
-        int[] bulbsFin = new int[num];
-        boolean[] bulbs = new boolean[num];
-        int count = 0;
+        int[] current_0 = new int[n];
+        int[] current_1 = new int[n];
+        int[] target_int = new int[n];
 
-        for(int i = 0; i < num; i++) {
-            bulbsStart[i] = scanner.nextInt();
+        for (int i = 0; i < n; i++) {
+            current_0[i] = current.charAt(i) - '0';
+            current_1[i] = current.charAt(i) - '0';
+            target_int[i] = target.charAt(i) - '0';
         }
-        for(int i = 0; i < num; i++) {
-            bulbsFin[i] = scanner.nextInt();
-        }
+        int count_1 = 1;
+        int count_2 = 0;
+        int INF = 987654321;
 
-        for(int i = 0; i < num; i++) {
-            if(bulbsStart[i] == bulbsFin[i]) {
-                bulbs[i] = true;
-            } else {
-                bulbs[i] = false;
+        current_0[0] = 1 - current_0[0];
+        current_0[1] = 1 - current_0[1];
+
+        for(int i = 1; i < n; i++) {
+            if(current_0[i - 1] != target_int[i - 1]) {
+                current_0[i - 1] = 1 - current_0[i - 1];
+                current_0[i] = 1 - current_0[i];
+                count_1++;
+                if(i != n - 1) {
+                    current_0[i + 1] = 1 - current_0[i + 1];
+                }
+            }
+            if(current_1[i - 1] != target_int[i - 1]) {
+                current_1[i - 1] = 1 - current_1[i - 1];
+                current_1[i] = 1 - current_1[i];
+                count_2++;
+                if(i != n - 1) {
+                    current_1[i + 1] = 1 - current_1[i + 1];
+                }
             }
         }
 
-        for(int i = 0; i < num; i+= 3) {
-            if(bulbs[i] != bulbs[i + 2]) {
-                count++;
-            } else if (bulbs[i + 1]) {
-                if(!bulbs[i] && !bulbs[i + 2]) {
-                    count += 2;
-                }
-            } else {
-                if(bulbs[i] && bulbs[i + 2]) {
-                    count += 3;
-                } else if (bulbs[i] == bulbs[i + 1] || bulbs[i + 1] == bulbs[i + 2]) {
-                    count++;
-                }
-            }
-        }
-        System.out.print(count);
+        if(current_0[n-1] != current_0[n - 1]) count_1 = INF;
+        if(current_1[n-1] != current_1[n - 1]) count_2 = INF;
+
+        if(count_1 == INF && count_2 == INF) System.out.println(-1);
+        else System.out.println(Math.max(count_1, count_2));
     }
 }
