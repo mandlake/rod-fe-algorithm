@@ -26,6 +26,7 @@ public class BulbSwitch {
         current_1[1] = 1 - current_1[1];
 
         for(int i = 1; i < n; i++) {
+            // 처음부터
             if(current_1[i - 1] != target_int[i - 1]) {
                 current_1[i - 1] = 1 - current_1[i - 1];
                 current_1[i] = 1 - current_1[i];
@@ -34,6 +35,7 @@ public class BulbSwitch {
                     current_1[i + 1] = 1 - current_1[i + 1];
                 }
             }
+            // 처음 빼고
             if(current_2[i - 1] != target_int[i - 1]) {
                 current_2[i - 1] = 1 - current_2[i - 1];
                 current_2[i] = 1 - current_2[i];
@@ -44,10 +46,10 @@ public class BulbSwitch {
             }
         }
 
-        if(current_1[n-1] != current_1[n - 1]) count_1 = INF;
-        if(current_2[n-1] != current_2[n - 1]) count_2 = INF;
+        if(current_1[n - 1] != current_1[n - 1]) count_1 = INF;
+        if(current_2[n - 1] != current_2[n - 1]) count_2 = INF;
 
         if(count_1 == INF && count_2 == INF) System.out.println(-1);
-        else System.out.println(Math.max(count_1, count_2));
+        else System.out.println(Math.min(count_1, count_2));
     }
 }

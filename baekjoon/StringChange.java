@@ -18,18 +18,18 @@ public class StringChange {
         int count = 0;
 
         for(int i = 0; i < alphabet.length() - 2; i++) {
-            String temps = "";
-            String temps2 = "";
+            StringBuilder temps = new StringBuilder();
+            StringBuilder temps2 = new StringBuilder();
             for(int j = i + 1; j < alphabet.length(); j++) {
                 while (j < alphabet.length() && chars_1[i] != chars_1[j]) {
-                    temps += chars_1[j];
+                    temps.append(chars_1[j]);
                     j++;
                 }
                 while (j < alphabet.length() && chars_1[i] == chars_1[j]) {
-                    temps2 += chars_1[j];
+                    temps2.append(chars_1[j]);
                     j++;
                 }
-                if(temps2 != "" && temps != "") {
+                if(!temps2.toString().isEmpty() && !temps.toString().isEmpty()) {
                     count++;
                     i = j - 1;
                     j = alphabet.length();
